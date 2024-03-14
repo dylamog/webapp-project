@@ -1,0 +1,23 @@
+<!-- if user is logged in: -->
+{% if user.is_authenticated %}
+Logged in as {{ user.username }}
+<form action="{% url 'logoutuser' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+    </form>
+    
+<!-- for logging out  -->
+<a href="{% url 'createthread' %}">Create thread</a> | 
+<a href="{% url 'forummain' %}">Main page</a>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+{% else %}
+<a href="{% url 'signupuser' %}">Sign Up</a>
+<a href="{% url 'loginuser' %}">Login</a>
+
+{% endif %}
+
+{% block content %}
+
+{% endblock %}

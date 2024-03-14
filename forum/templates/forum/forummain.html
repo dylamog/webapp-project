@@ -1,0 +1,15 @@
+{% extends 'forum/base.html' %}
+<br>
+{% block content %}
+<br>
+<br>
+<b>Main forum page</b>
+<hr>
+    {% for thread in threads %}
+    
+    <a href="{% url 'viewthread' thread.id %}">{{ thread.title }}</a> - by: <i>{{ thread.user }} on {{ thread.created }}</i>
+    <hr>
+    {% endfor %}
+
+
+{% endblock %}

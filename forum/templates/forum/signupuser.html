@@ -1,0 +1,14 @@
+{% extends 'forum/base.html' %}
+<br>
+{% block content %}
+<br>
+<br>
+
+<h1>Create a user:</h1>
+<h2>{{ error }}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Sign Up</button>
+</form>
+{% endblock %}
